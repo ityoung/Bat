@@ -10,15 +10,17 @@ goto CONNECTED
 
 :NOCONNECTED
 echo  * 请先连接设备......
-pause
+echo  连接手机后按任意键继续...
+pause>nul
 goto  ISCONN
 
 :CONNECTED
 cls
 echo  * 设备已连接......
 echo  ___________________________________________________
-echo  请在手机上打开想抓取log的应用
-pause
+echo  请在手机上打开想抓取log的应用获取packageName
+echo  完成后按任意键继续...
+pause>nul
 adb shell "dumpsys window windows | grep -E 'mFocusedApp'"
 set /p package=  输入要抓取log的程序包名:
 echo    _______________________________________________________________________
